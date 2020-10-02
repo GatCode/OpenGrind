@@ -26,7 +26,7 @@ Make sure you have installed [PlatformIO](https://platformio.org/platformio-ide)
 
 1. Open the *OpenGrind* Folder in VSCode
 
-2. Choose the correct `upload_port`coresponing to your MCU and OS in the `platformio.ini`file. This can be for example`COM3`on Windows or`/dev/ttyUSB0`on Mac or Linux.
+2. Choose the correct `upload_port`corresponing to your MCU and OS in the `platformio.ini`file. This can be for example`COM3`on Windows or`/dev/ttyUSB0`on Mac or Linux.
 
 3. Connect your microcontroller and hit the upload button --> enjoy 🎉
 
