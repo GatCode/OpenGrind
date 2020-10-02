@@ -10,13 +10,13 @@
 
 ## About
 
-This project is an advancement of my [7_Dollar_Coffee_Grinder_Timer](https://github.com/GatCode/7_Dollar_Coffee_Grinder_Timer) I developed a few years ago. As the time goes on, so does the need for a more sophisticated coffee grinder. Similar to what I stated in the corresponding [Instructable](https://www.instructables.com/id/The-7-Coffee-Grinder-Timer/), the aim of this firmware is to find a great coffee grinder with as much bang for your buck as possible and to customize it to your needs. This firmware is my way of achieving a more professional and reliable coffee grinder. You can find more information on the new [OpenGrind Instructable]().
+This project is an advancement of my [7_Dollar_Coffee_Grinder_Timer](https://github.com/GatCode/7_Dollar_Coffee_Grinder_Timer) I developed a few years ago. As the time goes on, so does the need for a more sophisticated coffee grinder. Similar to what I stated in the corresponding [Instructable](https://www.instructables.com/id/The-7-Coffee-Grinder-Timer/), the aim of this firmware is to find a great coffee grinder with as much bang for your buck as possible and to customize it to your needs. This firmware is my way of achieving a more professional and reliable coffee grinder. You can find more information on the new [OpenGrind Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/).
 
 
 
 ## Prerequisites
 
-The getting started section below assumes that you are using the same hardware and configuration as stated in this [Instructable]().
+The getting started section below assumes that you are using the same hardware and configuration as stated in this [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/).
 
 
 
