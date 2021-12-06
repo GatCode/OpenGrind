@@ -18,7 +18,7 @@ This project is an advancement of my [7_Dollar_Coffee_Grinder_Timer](https://git
 
 The getting started section below assumes that you are using the same hardware and configuration as stated in this [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/).
 
-A shppinglist can be found und [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/) or [here]( https://github.com/Steffeeeen1234/OpenGrind/blob/master/assets/Shppinglist.png) is an image of the parts I bought today.
+A shppinglist can be found und [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/) or [here]( https://github.com/Steffeeeen1234/OpenGrind/blob/master/assets/Shppinglist.png) is an image of the parts I bought today. I didn't looked at ebay or ali express. I just bought everything at one electrinic store. It cost me round about 40 euro.
 
 
 ## Getting Started
