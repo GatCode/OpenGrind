@@ -65,7 +65,8 @@ This firmware operates on the principle of a state machine with 4 main states.
 
 
 
-![](assets/states.png)
+![](assets/states.png#gh-dark-mode-only)
+![](assets/turnoffdarkmode.png#gh-light-mode-only)
 
 
 
