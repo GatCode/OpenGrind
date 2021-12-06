@@ -19,7 +19,6 @@ This project is an advancement of my [7_Dollar_Coffee_Grinder_Timer](https://git
 The getting started section below assumes that you are using the same hardware and configuration as stated in this [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/).
 
 
-
 ## Getting Started
 
 Make sure you have installed [PlatformIO](https://platformio.org/platformio-ide) and know the basics on how to use it.
@@ -63,10 +62,8 @@ If you choose to alter the hardware configuration (IO pins) or you are not satis
 This firmware operates on the principle of a state machine with 4 main states.
 
 
-
-![](assets/states.png)
-
-
+![](assets/states.png#gh-light-mode-only)
+![](assets/turnoffdarkmode.png#gh-dark-mode-only)
 
 ## Troubleshooting
 
