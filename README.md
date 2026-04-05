@@ -68,6 +68,15 @@ This firmware operates on the principle of a state machine with 4 main states.
 
 
 
+## Known Issues
+
+On certain setups, users have reported that the dosage value appears stuck at `99.9` and cannot be adjusted, and that the grinding process does not behave as expected. This is typically caused by one of the following:
+
+- **Improperly connected rotary encoder** — double-check your wiring against the schematic in the [Instructable](https://www.instructables.com/The-14-Sophisticated-Coffee-Grinder-Timer/).
+- **Corrupted EEPROM** — open the Arduino IDE, flash the built-in `eeprom_clear` example sketch (*File → Examples → EEPROM → eeprom_clear*) to wipe any stale data, then re-flash OpenGrind.
+
+
+
 ## Troubleshooting
 
 During the first test runs, I quickly encountered the problem that the Arduino sometimes froze during the operation. This freezing occurred due to the electromagnetic interference (EMI) of the powerful electro motor inside the grinder. There are a lot of possibilities why this occurs but one possible solution is to connect the Arduino GND to mains earth. Keep in mind: a small wire connection to earth may not be sufficient! To achieve the best possible EMI reduction in my case, I had to enclose the whole Arduino in a metal housing (or wrap it with copper/aluminum tape), make the connection from the Arduino GND to the metal housing as short as possible and then connect the metal housing to the mains earth.
