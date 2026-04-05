@@ -6,7 +6,6 @@
   <img alt="gitter" src="https://img.shields.io/badge/language-C/C++-blue">
   </p>
 </p>
-<br>
 
 ## About
 
