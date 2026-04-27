@@ -65,7 +65,15 @@ This firmware operates on the principle of a state machine with 4 main states.
 
 ![](assets/states.png)
 
+## OLED Mount
 
+This repository also includes an STL file for a 3D-printable OLED screen mount by Jon Noeldner. The mount and images below are a great contribution and show how the display can be integrated neatly into the grinder housing for a much more polished look. Many thanks to Jon for sharing this.
+
+<p align="center">
+  <img src="assets/image0.jpeg" width="250">
+  <img src="assets/image1.jpeg" width="250">
+  <img src="assets/image2.jpeg" width="250">
+</p>
 
 ## Known Issues
 
