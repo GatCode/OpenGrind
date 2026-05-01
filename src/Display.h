@@ -1,5 +1,4 @@
 #pragma once
-
 class Adafruit_SSD1306;
 
 class Display
@@ -11,6 +10,7 @@ class Display
     Display();
     void printSingleDose();
     void printDoubleDose();
+    void printManualMode(double time);
     void printTime(double time);
     void printStatistics(int numberSingles, int numberDoubles);
 };

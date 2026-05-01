@@ -14,7 +14,13 @@ Grinder *grinder;
 
 // State Machine
 enum States {NORMAL, SET_DOSE, GRINDING, STATS};
+// Modes
+enum Modes {SINGLE, DOUBLE, MANUAL};
+
 uint8_t state = NORMAL;
+uint8_t mode = DOUBLE;
+double manualGrindTime =0.0;
+
 
 void setup() {
   Serial.begin(9600);
@@ -30,6 +36,7 @@ void loop() {
   switch(state)
   {
     case NORMAL:
+    grinder->off();
       // set new dose
       if (encoder->wasPressed()) {
         state = SET_DOSE;
@@ -47,39 +54,71 @@ void loop() {
         state = STATS;
         break;
       }
-
-      // select dosage
-      if (encoder->wasTurnedLeft()) {
-        dosage->singleDoseSelected = true;
-      } else if (encoder->wasTurnedRight()) {
-        dosage->singleDoseSelected = false;
+      
+      switch(mode){
+        case(SINGLE):
+          if(encoder->wasTurnedRight())mode=DOUBLE;
+          break;
+        case(DOUBLE):
+          if(encoder->wasTurnedLeft())mode=SINGLE;
+          if(encoder->wasTurnedRight())mode=MANUAL;
+          break;
+        case(MANUAL):
+          if(encoder->wasTurnedLeft())mode=DOUBLE;
+          break;
       }
+      
 
       // display dosage
-      if (dosage->singleDoseSelected) {
+      if (mode==SINGLE) {
+        dosage->singleDoseSelected=true;
+        dosage->manualModeSelected=false;
+        manualGrindTime=0.0;
         display->printSingleDose();
-      } else {
-        display->printDoubleDose();
+      } else if(mode==DOUBLE) {
+        dosage->singleDoseSelected=false;
+        dosage->manualModeSelected=false;
+        manualGrindTime=0.0;
+        display->printDoubleDose() ;
+      } else if(mode==MANUAL) {
+        dosage->singleDoseSelected=false;
+        dosage->manualModeSelected=true;
+        display->printManualMode(manualGrindTime*1.0);
       }
+        
 
       break;
 
     case SET_DOSE:
-      if (encoder->wasTurnedLeft()) {
-        dosage->singleDoseTime -= dosage->singleDoseSelected ? 0.1 : 0.0;
-        dosage->doubleDoseTime -= dosage->singleDoseSelected == false ? 0.1 : 0.0;
-      } else if (encoder->wasTurnedRight()) {
-        dosage->singleDoseTime += dosage->singleDoseSelected ? 0.1 : 0.0;
-        dosage->doubleDoseTime += dosage->singleDoseSelected == false ? 0.1 : 0.0;
+      if(dosage->manualModeSelected==false){
+        if (encoder->wasTurnedLeft()) {
+          dosage->singleDoseTime -= dosage->singleDoseSelected ? 0.1 : 0.0;
+          dosage->doubleDoseTime -= dosage->singleDoseSelected==false ? 0.1 : 0.0;
+        } else if (encoder->wasTurnedRight()) {
+          dosage->singleDoseTime += dosage->singleDoseSelected ? 0.1 : 0.0;
+          dosage->doubleDoseTime += dosage->singleDoseSelected==false ? 0.1 : 0.0;
+        }
+        dosage->writeToEEPROM();
+        display->printTime(dosage->singleDoseSelected ? dosage->singleDoseTime : dosage->doubleDoseTime);
       }
-
-      dosage->writeToEEPROM();
-      display->printTime(dosage->singleDoseSelected ? dosage->singleDoseTime : dosage->doubleDoseTime);
       
       state = NORMAL;
       break;
 
     case GRINDING:
+      if(dosage->manualModeSelected){
+        int startTime = millis()/1000.0;
+        while(grinder->startBtnPressed()){
+          grinder->on(1);
+          display->printTime(millis()/1000.0-startTime);
+
+        }
+        manualGrindTime+=millis()/1000.0-startTime;
+        grinder->off();
+        state = NORMAL;
+        break;
+      }else
+
       grinder->increaseShotCounter(dosage->singleDoseSelected);
 
       grinder->on(dosage->singleDoseSelected ? dosage->singleDoseTime : dosage->doubleDoseTime);

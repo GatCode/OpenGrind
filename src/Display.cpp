@@ -53,6 +53,26 @@ void Display::printDoubleDose() {
     display->display();
 }
 
+void Display::printManualMode(double time){
+    display->clearDisplay();
+    display->setTextColor(WHITE);
+    display->setTextSize(2);
+    display->setCursor(30,10);
+    display->print("Manual");
+    display->println();
+    time = time < 0 ? 0.0 : time;
+    time = time < 100 ? time : 99.9;
+    display->setCursor(34,34);
+    display->print(time, time < 10 ? 2 : 1);
+
+    display->setTextSize(2);
+    display->setCursor(90, 34);
+    display->print("s");
+
+    display->println();
+    display->display();
+}
+
 void Display::printTime(double time) {
     display->clearDisplay();
 
